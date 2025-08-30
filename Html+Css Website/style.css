@@ -1,0 +1,186 @@
+body{
+    margin: 0;
+    padding: 0;
+    /* padding-left: 20px; */
+    box-sizing: border-box;
+    background-color: black;
+}
+:root {
+    --main-color: #5cd2b9;
+    --text-color: #fff;
+    --bg-color: #3333;
+}
+
+header {
+    padding: 0 30px ;
+    background-color: #333;
+    font-family: sans-serif ;
+
+}
+nav {
+    padding: 30px 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-family: sans-serif ;
+}
+
+ 
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+ 
+ .logo {
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    
+ }
+
+nav .logo h1 {
+    margin: 0;
+    font-size: 55px;
+}
+
+nav .logo p {
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 3px;  
+    margin-top: -10px;
+ 
+}
+
+  
+nav .nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;  
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+nav .nav ul li {
+    cursor: pointer;
+    font-weight: bolder;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+nav .nav ul li:hover {
+    color: var(--main-color);
+}
+
+ 
+nav .nav ul li i {
+    font-size: 18px;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 600px; /* يغطي كامل ارتفاع الشاشة */
+  background-color: #0f0f0f;
+  padding-left:  200px;
+  position: relative;
+  overflow: hidden;
+  font-family: sans-serif;
+  color: white;
+}
+
+.hero-content {
+  max-width: 50%;
+  z-index: 2;  
+}
+
+ 
+.hero-content h4 {
+  color: #00c9a7;
+  letter-spacing: 2px;
+}
+
+.hero-content h1 {
+  font-size: 68px;
+  margin: 20px 0;
+}
+
+.hero-content h1 span {
+  color: #00c9a7;
+}
+
+.hero-content p {
+  color: #b0b0b0;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.about-btn {
+  display: inline-block;
+  margin-top: 30px;
+  background-color: #00c9a7;
+  color: white;
+  padding: 20px 25px;
+  text-decoration: none;
+  border-radius: 100px;
+  font-weight: bold;
+}
+.circule-div{
+  align-items: center;
+  justify-content: center;
+}
+.btn-circule{
+    display: inline-block;
+  margin-top: 30px;
+  background-color: #21413b;
+  color: white;
+  padding: 2px 14px;
+    text-decoration: none;
+  border-radius: 100px;
+  font-weight: bold;
+}
+.btn-circule2{
+    display: inline-block;
+  margin-top: 30px;
+  background-color: #3a8272;
+  color: white;
+  padding: 3px 15px;
+    text-decoration: none;
+  border-radius: 100px;
+  font-weight: bold;
+}
+.btn-circule3{
+    display: inline-block;
+  margin-top: 30px;
+  background-color: #1b342e;
+  color: white;
+  padding: 0px 12px;
+    text-decoration: none;
+  border-radius: 100px;
+  font-weight: bold;
+}
+.promotion-link {
+  margin-top: 10px;
+  margin-left: 50px;
+  color: #00c9a7;
+}
+ 
+.hero-image {
+  flex: 1;
+  height: 100%;
+  background-image: url('./images/portrait.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;  
+  z-index: 1;
+}
+.seperate-div{
+    background: #00c9a7;
+    width: 100px;
+    height: 1px;
+    border: #00c9a7;
+ }
