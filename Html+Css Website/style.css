@@ -1,21 +1,29 @@
 body{
     margin: 0;
     padding: 0;
-    /* padding-left: 20px; */
     box-sizing: border-box;
     background-color: black;
+    font-family:  sans-serif;
+    color: white;
 }
 :root {
     --main-color: #5cd2b9;
     --text-color: #fff;
     --bg-color: #3333;
+    
 }
-
+h1{
+  font-size: 50px;
+}
+p{
+color: #b0b0b0;
+}
 header {
     padding: 0 30px ;
     background-color: #333;
     font-family: sans-serif ;
-
+    justify-content: center;
+    align-items: center;
 }
 nav {
     padding: 30px 200px;
@@ -23,7 +31,6 @@ nav {
     font-family: sans-serif ;
 }
 
- 
 nav .container {
     display: flex;
     justify-content: space-between;
@@ -31,14 +38,12 @@ nav .container {
    
 }
 
- 
- .logo {
+.logo {
     text-align: center; 
     display: flex;
     flex-direction: column;
     align-items: center;  
-    
- }
+}
 
 nav .logo h1 {
     margin: 0;
@@ -51,7 +56,6 @@ nav .logo p {
     color: #fff;
     letter-spacing: 3px;  
     margin-top: -10px;
- 
 }
 
   
@@ -75,7 +79,7 @@ nav .nav ul li:hover {
     color: var(--main-color);
 }
 
- 
+
 nav .nav ul li i {
     font-size: 18px;
 }
@@ -84,7 +88,7 @@ nav .nav ul li i {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 600px; /* يغطي كامل ارتفاع الشاشة */
+  height: 600px;  
   background-color: #0f0f0f;
   padding-left:  200px;
   position: relative;
@@ -92,95 +96,656 @@ nav .nav ul li i {
   font-family: sans-serif;
   color: white;
 }
+/* إعداد أولي للعناصر مخفية */
+.hero-content > * {
+  opacity: 0;
+  transform: translateY(20px); /* تبدأ منخفضة قليلًا */
+  animation-fill-mode: forwards; /* للحفاظ على الحالة بعد الأنيميشن */
+}
 
+/* الأنيميشن نفسه */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* تطبيق الأنيميشن مع تأخير مختلف لكل عنصر */
+.hero-content h4.small-title {
+  animation: fadeUp 0.6s ease-out 0.3s forwards;
+}
+
+.hero-content h1 {
+  animation: fadeUp 0.6s ease-out 0.6s forwards;
+}
+
+.hero-content .seperate-div {
+  animation: fadeUp 0.6s ease-out 0.9s forwards;
+}
+
+.hero-content p {
+  animation: fadeUp 0.6s ease-out 1.2s forwards;
+}
+
+.hero-content .circle-container {
+  animation: fadeUp 0.6s ease-out 1.5s forwards;
+}
+
+.hero-content .promotion-link {
+  animation: fadeUp 0.6s ease-out 1.8s forwards;
+}
+
+/* herosection */
 .hero-content {
   max-width: 50%;
   z-index: 2;  
 }
 
  
-.hero-content h4 {
-  color: #00c9a7;
-  letter-spacing: 2px;
-}
 
 .hero-content h1 {
-  font-size: 68px;
-  margin: 20px 0;
+   margin: 20px 0;
 }
 
-.hero-content h1 span {
-  color: #00c9a7;
+  span {
+  color:  var(--main-color);;
 }
 
 .hero-content p {
-  color: #b0b0b0;
-  line-height: 1.6;
+   line-height: 1.6;
   max-width: 400px;
 }
 
-.about-btn {
-  display: inline-block;
-  margin-top: 30px;
-  background-color: #00c9a7;
-  color: white;
-  padding: 20px 25px;
-  text-decoration: none;
-  border-radius: 100px;
-  font-weight: bold;
-}
-.circule-div{
-  align-items: center;
-  justify-content: center;
-}
-.btn-circule{
-    display: inline-block;
-  margin-top: 30px;
-  background-color: #21413b;
-  color: white;
-  padding: 2px 14px;
-    text-decoration: none;
-  border-radius: 100px;
-  font-weight: bold;
-}
-.btn-circule2{
-    display: inline-block;
-  margin-top: 30px;
-  background-color: #3a8272;
-  color: white;
-  padding: 3px 15px;
-    text-decoration: none;
-  border-radius: 100px;
-  font-weight: bold;
-}
-.btn-circule3{
-    display: inline-block;
-  margin-top: 30px;
-  background-color: #1b342e;
-  color: white;
-  padding: 0px 12px;
-    text-decoration: none;
-  border-radius: 100px;
-  font-weight: bold;
-}
 .promotion-link {
   margin-top: 10px;
-  margin-left: 50px;
-  color: #00c9a7;
+  margin-left: 115px;
+  color: var(--main-color);
 }
  
 .hero-image {
-  flex: 1;
-  height: 100%;
-  background-image: url('./images/portrait.png');
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: cover;  
-  z-index: 1;
+    position: relative; /* مهم ليكون الـ overlay بالنسبة له */
+    flex: 1;
+    height: 100%;
+    background: url('./images/portrait.png') no-repeat right center;
+    background-size: cover;  
+    z-index: 1;
 }
+ 
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
+    background: linear-gradient(
+        to left, 
+        rgba(92,210,185,0.15), 
+        rgba(0,0,0,0.3)         
+    );
+    z-index: 2;
+}
+
+
+
 .seperate-div{
-    background: #00c9a7;
+    background: var(--main-color);;
     width: 100px;
-    height: 1px;
-    border: #00c9a7;
+    height: 3px;
+    border: var(--main-color);;
  }
+
+
+.about {
+  left: 10px;
+}
+
+.circle-container {
+  display: flex;
+  flex-direction: row;  
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
+}
+
+.stacked-circles {
+  position: relative;
+  width: 90px;
+  height: 90px;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle:nth-child(1) {
+  width: 90px;
+  height: 90px;
+  background-color: #21413b;
+}
+
+.circle:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  background-color: #3a8272;
+}
+
+.circle:nth-child(3) {
+  width: 70px;
+  height: 70px;
+  background-color: var(--main-color);
+}
+
+.circle:nth-child(3)::before {
+  content: "▶";
+  font-size: 24px;
+  color: white;
+}
+
+
+.underline {
+  border-bottom: 1px solid #333;  
+  display: inline; 
+  padding-bottom: 25px;  
+  letter-spacing: 3px;
+  font-weight: bold;
+  color: white;
+ }
+
+
+ /* section2 */
+
+ .services {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.content {
+  flex: 1;
+  min-width: 250px;
+}
+
+
+
+.content h1 {
+  font-size: 50px;
+  color: white;
+  margin: 10px 0;
+}
+
+.content h1 span {
+  color: var(--main-color);;
+}
+
+.content p {
+  line-height: 1.6;
+}
+
+.content button {
+  margin-top: 20px;
+  padding: 20px 20px;
+  background: var(--main-color);;
+  color: white;
+  border: none;
+  cursor: pointer;
+  /* font-weight: bolder; */
+  font-size: 15px;
+  font-weight: 700;
+  
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.card {
+  background: linear-gradient(to bottom, #111, #0a0a0a);
+  padding: 20px;
+  text-align: center;
+}
+
+.card img {
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  margin: 10px 0;
+  color: white;
+}
+
+.card p {
+  color: #aaa;
+  font-size: 14px;
+}
+#section2{
+  padding: 100px 200px;
+}
+
+.transparent-box {
+  background: linear-gradient(to top, #1c322d, rgba(0, 0, 0, 0.6));
+}
+/* section3 */
+#section3 {
+   height: 550px; 
+  background: url("images/Untitled-1.png") no-repeat left center; 
+  background-size: contain;
+  background-position: 250px bottom;
+   background-size: 400px auto;
+  }
+
+/* section4 */
+#section4 {
+ 
+  width: 100%;
+  height: 300px; 
+  background: 
+    linear-gradient(
+      to right, 
+      #1c322d, 
+      rgba(0, 0, 0, 0.6)
+    ),
+    url('images/1.jpg') center/cover no-repeat;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+#section4 div img,
+#section4 div h3,
+#section4 div h4 {
+  margin: 0; 
+  padding: 0;
+}
+#section4 div h3{
+  color: var(--main-color);
+  font-size: 50px;
+  margin-top: 20px;
+}
+#section4 div i{
+  color: white;
+  font-size: 20px;
+  margin-left: 3px;
+}
+#section4 div h4{
+  margin-top: 10px;
+}
+
+/* section6 */
+#section6 {
+ 
+  width: 100%;
+  height: 250px; 
+  background: 
+    linear-gradient(
+      to left, 
+      #1b322d, 
+      rgba(0, 0, 0, 0.6)
+    ),
+    url('images/side-view-portrait-of-a-woman-with-make-up-CTUMAUJ.jpg') center/cover no-repeat;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+#section6 img{
+    filter: grayscale(100%);
+
+}
+/* section7 */
+ 
+#section7 {
+color: white;
+  padding: 80px 200px;
+}
+ 
+
+
+.check-circle{
+    display: flex;
+    flex-direction: row;
+     align-items: center;
+     gap: 20px;
+}
+.check-circle i{
+  width: 30px;         
+  height: 30px;          
+  border-radius: 50%;  
+  background-color: var(--main-color); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;       
+  font-size: 24px;       
+  cursor: pointer;      
+} 
+.small-title{
+color:  var(--main-color);;
+  letter-spacing: 3px;
+}
+
+ #section7 div img,
+#section7 div h3,
+#section7 div h4 {
+  margin: 0; 
+  padding: 0;
+} 
+h4.small-title,
+h1 {
+  margin: 10px 0 0 0;   
+  padding: 0;
+}
+/* section8 */
+.image-wrapper {
+  position: relative;  
+  display: inline-block;
+}
+
+.video-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 4px solid white;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.video-circle i {
+  color: white;
+  font-size: 24px;
+}
+/* section9 */
+#section9 {
+  
+  background: 
+    linear-gradient(
+      to right, 
+      #0c0c0c, 
+      rgba(0, 0, 0, 0.6)
+    ),
+    url('images/Bg-1.jpg') center/cover no-repeat;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/* section10 */
+
+#section10 {
+ 
+  padding: 50px 200px;
+  background: 
+    linear-gradient(
+      to right, 
+      #0c0c0c, 
+      rgba(0, 0, 0, 0.6)
+    ),
+    url('images/Bg-1.jpg') center/cover no-repeat;  color: white;
+}
+
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  
+  gap: 30px 50px;   
+}
+
+.team-card {
+  display: flex;
+  background-color: #111;
+  /* border-radius: 8px; */
+  padding: 20px;
+  gap: 20px;        
+  width: 500px;         
+  align-items: center;
+  color: white;
+}
+
+.team-card img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  /* border-radius: 4px; */
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.team-card img:hover {
+  filter: grayscale(0%);
+}
+
+.team-card .team-info {
+  display: flex;
+  flex-direction: column;
+  /* gap: 8px; */
+}
+
+.team-card .team-info h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.team-card .team-info .role {
+  color: var(--main-color);
+  font-size: 14px;
+}
+
+.team-card .team-info p {
+  font-size: 14px;
+  color: #ccc;
+  margin: 0;
+}
+
+.team-card .social-icons {
+  display: flex;
+  gap: 15px;
+  /* margin-top: 10px; */
+}
+
+.team-card .social-icons i {
+  font-size: 16px;
+  color: var(--main-color);
+  cursor: pointer;
+  margin-top: 50px;
+  margin-left: 8px;
+}
+#section10 span{
+  margin-top: 15px;
+}
+#section10 p{
+  margin-top: 20px ;
+}
+
+
+#section13 {
+ 
+  padding: 50px 200px;
+  background: 
+    linear-gradient(
+      to right, 
+      #0c0c0c, 
+      rgba(0, 0, 0, 0.6)
+    ),
+    url('images/adadad.jpg') center/cover no-repeat;  color: white;
+}
+
+.outline-quote {
+  color: transparent;           
+  -webkit-text-stroke: 1px var(--main-color); 
+  font-size: 50px;              
+  position: absolute;     
+  right: 20px;            
+  top: 40px;             
+}
+    .contact-section {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 60px 200px;
+        gap: 20px;
+    }
+
+ 
+    .contact-form {
+        border: 1px solid var(--main-color);
+        padding: 30px;
+        flex: 1;
+    }
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--main-color);
+    padding: 12px;
+    color: #fff;
+    font-size: 16px;
+}
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+        color: var(--main-color);
+    }
+
+    .contact-form textarea {
+        height: 150px;
+        resize: none;
+    }
+
+    .contact-form button {
+        width: 100%;
+        background-color: var(--main-color);
+        border: none;
+        padding: 15px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .contact-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+        gap: 5px;
+    }
+
+ 
+
+ 
+.contact-form label {
+    margin-bottom: 5px;
+    color: var(--main-color);
+    font-weight: 100;
+    font-size: 14px;
+}
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        gap: 23px;
+        font-size: 16px;
+        color: #ccc;
+        margin-bottom: 40px;
+     }
+
+    .info-item i {
+        font-size: 35px;
+        color: var(--main-color);
+    }
+
+    .info-item a {
+        color: var(--main-color);
+        text-decoration: none;
+     }
+ 
+.animated-btn {
+  padding: 12px 30px;
+  font-size: 16px;
+  background-color:  var(--main-color) ;
+  color: white;
+  border: none;
+   cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* تأثير التكبير والتحريك عند Hover */
+.animated-btn:hover {
+  background-color: #00b08f;   /* غامق قليلاً */
+  transform: scale(1.05);      /* تكبير بسيط */
+}
+
+/* تأثير إضافة ظل عند Hover */
+.animated-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  transition: all 0.5s ease;
+}
+
+.animated-btn:hover::after {
+  left: 100%;
+}
+.gallery-grid {
+  display: grid;
+  gap: 15px;
+  padding: 0px 200px 100px 200px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+ 
+.gallery-img:hover {
+  transform: scale(1.05) rotate(5deg);   
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);  
+}
+
+ 
